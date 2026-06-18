@@ -91,9 +91,21 @@ Una vez cargados los datos, el controlador de la LCD recorre secuencialmente cad
 
 La principal ventaja de esta metodología es que permite reutilizar la misma lógica de control para múltiples mensajes, cambiando únicamente el archivo de datos asociado. Esto simplifica el diseño, facilita el mantenimiento del código y permite ampliar el número de mensajes mostrados por el sistema sin modificar la estructura general del controlador de la pantalla.
 
-
 ## Conclusiones
 
+- Se logró comprender el funcionamiento de una pantalla LCD 16x2 compatible con el controlador HD44780 y su integración con una FPGA.
+
+- Se implementó un controlador para LCD estática capaz de inicializar el dispositivo y mostrar mensajes almacenados en memoria mediante códigos ASCII.
+
+- Se desarrolló una solución de LCD dinámica que permite cambiar el mensaje mostrado según el estado del sistema utilizando una señal de control proveniente de una máquina de estados finitos (FSM).
+
+- El uso de archivos externos `.txt` para almacenar los códigos ASCII simplificó la modificación y mantenimiento de los mensajes visualizados.
+
+- Se verificó la importancia de respetar los tiempos de operación de la LCD mediante divisores de frecuencia y máquinas de estados dedicadas.
+
+- La arquitectura implementada es modular y escalable, permitiendo agregar nuevos mensajes y funcionalidades sin modificar significativamente el diseño general.
+
+- El sistema desarrollado proporciona una interfaz visual efectiva para el proyecto de casillero, mejorando la interacción entre el usuario y el sistema.
 
 
 
