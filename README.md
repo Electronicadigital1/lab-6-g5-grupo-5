@@ -52,7 +52,7 @@ Para esto, se deben diseñar los mensajes estáticos y luego, convertirlos en di
 **-LCD dinámica:** Para visualizar los mensajes estáticos dependiendo de una salida de 3 bits de la FMS se implementará un multiplexor (MUX) 1 a 2 (para 2 mensajes) encargado de mostrar la acción correspondiente, ya sea "ingresar clave" o "cambiar clave". Para esto la salida del FMS se convertirá en el selector del MUX y la entrada de este es un nivel lógico alto (1). La codificación se especifica más adelante
 
 
-![Diagrama del sistema](multiplexors)
+![Diagrama del sistema](mux.png)
 
 
 La visualización de mensajes en la pantalla LCD se implementó mediante módulos independientes, cada uno encargado de mostrar un texto específico al usuario. Para este proyecto se desarrollaron los módulos correspondientes a los mensajes *Ingresar clave* y *Digite nueva clave*, los cuales utilizan la misma estructura de funcionamiento y únicamente difieren en los caracteres almacenados en memoria.
@@ -95,5 +95,5 @@ La principal ventaja de esta metodología es que permite reutilizar la misma ló
 ## Conclusiones
 
 
-## Referencias
+
 
