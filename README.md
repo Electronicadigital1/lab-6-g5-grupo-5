@@ -26,7 +26,9 @@ En este laboratorio se busca comprender el funcionamiento de una pantalla LCD (*
 
 ## Implementación
 
-Una pantalla LCD es un dispositivo que permite visualizar información mediante cristales líquidos. En el casillero, su función es comunicar al usuario el estado del sistema, mostrando mensajes como el ingreso de clave, el cambio de contraseña o los dígitos digitados.
+Una pantalla LCD es un dispositivo que permite visualizar información mediante cristales líquidos. En el casillero, su función es comunicar al usuario el estado del sistema, mostrando mensajes como el ingreso de clave, el cambio de contraseña o los dígitos digitados:
+
+![Diagrama del sistema]()
 
 
 ## Conclusiones
