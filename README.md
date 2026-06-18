@@ -43,7 +43,14 @@ Los caracteres que visualizados en la pantalla se representarán mediante el có
 
 Para esto, se deben diseñar los mensajes estáticos y luego, convertirlos en dinámicos:
 
-- **LCD estática:**  Se implementará una máquina de estados encargada de inicializar la pantalla LCD mediante la secuencia de comandos requerida por el controlador HD44780. Una vez completada la inicialización, esta misma lógica permitirá enviar los caracteres correspondientes al mensaje seleccionado por la FSM. Debido a que la LCD opera a una velocidad considerablemente menor que la FPGA, se utilizará un divisor de frecuencia para generar una señal de reloj más lenta y asi evitar errores por los tiempos de operación exigidos por el dispositivo.
+**-LCD estática:**  Se implementará una máquina de estados encargada de inicializar la pantalla LCD mediante la secuencia de comandos requerida por el controlador HD44780. Una vez completada la inicialización, esta misma lógica permitirá enviar los caracteres correspondientes al mensaje seleccionado por la FSM. Debido a que la LCD opera a una velocidad considerablemente menor que la FPGA, se utilizará un divisor de frecuencia para generar una señal de reloj más lenta y asi evitar errores por los tiempos de operación exigidos por el dispositivo.
+
+
+![Diagrama del sistema](maquina LCD.png)
+
+
+**-LCD dinámica:** Para visualizar los mensajes estáticos dependiendo de una salida de 3 bits de la FMS se implementará un multiplexor (MUX) 1 a 2 (para 2 mensajes) encargado de mostrar la acción correspondiente, ya sea "ingresar clave" o "cambiar clave". Para esto la salida del FMS se convertirá en el selector del MUX y la entrada de este es un nivel lógico alto (1). La codificación se especifica más adelante
+
 
 ## Conclusiones
 
