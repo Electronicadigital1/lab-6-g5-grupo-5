@@ -3,9 +3,12 @@
 
 # Integrantes
 
-Jonathan Alexander Ducuara Enciso - C.C. 1031648483
-Sofia Cabanzo Sanabia - C.C. 1053332421
-Valentina Parra Stella - vparras@unal.edu.co
+-Jonathan Alexander Ducuara Enciso - C.C. 1031648483
+
+-Sofia Cabanzo Sanabia - C.C. 1053332421
+
+-Valentina Parra Stella - vparras@unal.edu.co
+
 18 de Junio del 2026
 
 
@@ -30,6 +33,17 @@ Una pantalla LCD es un dispositivo que permite visualizar información mediante 
 
 ![Diagrama del sistema](Bus-de-datos-lcd.webp)
 
+
+Para la implementación del sistema de visualización del casillero se utilizará una pantalla LCD de 16 columnas y 2 filas compatible con el controlador HD44780. Su función será proporcionar comunicación visual entre el sistema y el usuario, mostrando mensajes relacionados con el estado del casillero, como el ingreso de la clave, la verificación de acceso, el cambio de contraseña y la confirmación de operaciones.
+
+La visualización será dinámica, de manera que el mensaje mostrado dependa del estado actual de la máquina de estados finitos (FSM). Para ello, la FSM genera una señal de control de 3 bits que será utilizada por el módulo de la LCD para seleccionar el mensaje correspondiente.
+
+Los caracteres que visualizados en la pantalla se representarán mediante el código ASCII, permitiendo visualizar letras, números y símbolos requeridos por la aplicación. La comunicación entre la FPGA y la pantalla se realiza a través de las líneas de datos y las señales de control RS, R/W y E, encargadas de seleccionar el tipo de información enviada, definir la operación de lectura o escritura y sincronizar la transferencia de datos, respectivamente.
+
+
+Para esto, se deben diseñar los mensajes estáticos y luego, convertirlos en dinámicos:
+
+- **LCD estática:**  Se implementará una máquina de estados encargada de inicializar la pantalla LCD mediante la secuencia de comandos requerida por el controlador HD44780. Una vez completada la inicialización, esta misma lógica permitirá enviar los caracteres correspondientes al mensaje seleccionado por la FSM. Debido a que la LCD opera a una velocidad considerablemente menor que la FPGA, se utilizará un divisor de frecuencia para generar una señal de reloj más lenta y asi evitar errores por los tiempos de operación exigidos por el dispositivo.
 
 ## Conclusiones
 
