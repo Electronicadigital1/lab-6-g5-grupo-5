@@ -3,6 +3,11 @@
 
 # Integrantes
 
+Jonathan Alexander Ducuara Enciso - C.C. 1031648483
+Sofia Cabanzo Sanabia - C.C. 1053332421
+Valentina Parra Stella - vparras@unal.edu.co
+18 de Junio del 2026
+
 
 # Informe
 
@@ -17,15 +22,11 @@ Indice:
 ## Diseño implementado
 ### Descripción
 
-### Diagramas
-
-
-## Simulaciones 
-
-<!-- (Incluir las de Digital si hicieron uso de esta herramienta, pero también deben incluir simulaciones realizadas usando un simulador HDL como por ejemplo Icarus Verilog + GTKwave) -->
-
+En este laboratorio se busca comprender el funcionamiento de una pantalla LCD (*Liquid Crystal Display* o pantalla de cristal líquido), así como los principios básicos de su comunicación y control. Con este propósito, se diseñará e implementará un código capaz de mostrar mensajes predeterminados en la pantalla mediante una visualización estática y, posteriormente, modificar dichos mensajes de acuerdo con las condiciones de operación del sistema mediante una visualización dinámica. De esta manera, se analizará tanto el proceso de envío de información a la LCD como la gestión de diferentes mensajes en tiempo real.
 
 ## Implementación
+
+Una pantalla LCD es un dispositivo que permite visualizar información mediante cristales líquidos. En el casillero, su función es comunicar al usuario el estado del sistema, mostrando mensajes como el ingreso de clave, el cambio de contraseña o los dígitos digitados.
 
 
 ## Conclusiones
