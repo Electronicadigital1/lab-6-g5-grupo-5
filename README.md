@@ -52,6 +52,46 @@ Para esto, se deben diseñar los mensajes estáticos y luego, convertirlos en di
 **-LCD dinámica:** Para visualizar los mensajes estáticos dependiendo de una salida de 3 bits de la FMS se implementará un multiplexor (MUX) 1 a 2 (para 2 mensajes) encargado de mostrar la acción correspondiente, ya sea "ingresar clave" o "cambiar clave". Para esto la salida del FMS se convertirá en el selector del MUX y la entrada de este es un nivel lógico alto (1). La codificación se especifica más adelante
 
 
+![Diagrama del sistema](multiplexors)
+
+
+La visualización de mensajes en la pantalla LCD se implementó mediante módulos independientes, cada uno encargado de mostrar un texto específico al usuario. Para este proyecto se desarrollaron los módulos correspondientes a los mensajes *Ingresar clave* y *Digite nueva clave*, los cuales utilizan la misma estructura de funcionamiento y únicamente difieren en los caracteres almacenados en memoria.
+
+Cada módulo emplea una memoria interna donde se almacenan los códigos ASCII de los caracteres que serán enviados a la pantalla. Con el fin de facilitar la modificación de los mensajes, estos códigos se guardan en archivos externos con extensión .txt, los cuales son cargados durante la inicialización mediante la instrucción:
+
+      $readmemh("data_ingresar_clave.txt", static_data_mem);
+
+
+o
+
+
+      $readmemh("data_digitar_nueva_clave.txt", static_data_mem);
+
+
+De esta manera, el contenido mostrado en la LCD puede modificarse sin necesidad de alterar la lógica principal del módulo.
+
+Para el mensaje ``Ingresar clave'', el archivo de memoria contiene los códigos ASCII correspondientes a cada carácter del texto:
+
+      49 6E 67 72 65 73 61 72
+      20
+      63 6C 61 76 65
+
+
+donde, por ejemplo, el valor hexadecimal \texttt{49} representa la letra ``I'', mientras que 6E representa la letra ``n''. Los espacios se representan mediante el código hexadecimal \texttt{20}.
+
+De forma análoga, para el mensaje ``Digite nueva clave'' se almacenan los códigos ASCII de cada uno de los caracteres que conforman la frase:
+
+      
+      44 69 67 69 74 65 20
+      6E 75 65 76 61 20
+      63 6C 61 76 65
+
+
+Una vez cargados los datos, el controlador de la LCD recorre secuencialmente cada posición de memoria y envía los caracteres correspondientes a la pantalla. Para ello se utiliza un contador que determina la posición actual dentro del mensaje y una máquina de estados encargada de realizar la configuración inicial de la LCD y posteriormente la escritura de los caracteres.
+
+La principal ventaja de esta metodología es que permite reutilizar la misma lógica de control para múltiples mensajes, cambiando únicamente el archivo de datos asociado. Esto simplifica el diseño, facilita el mantenimiento del código y permite ampliar el número de mensajes mostrados por el sistema sin modificar la estructura general del controlador de la pantalla.
+
+
 ## Conclusiones
 
 
